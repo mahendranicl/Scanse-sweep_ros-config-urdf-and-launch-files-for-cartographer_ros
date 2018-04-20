@@ -1,0 +1,64 @@
+<launch>
+  <param name="robot_description"
+    textfile="$(find cartographer_ros)/urdf/sweep.urdf" />
+
+  <arg name="debugger" default="" />
+  <!-- <param name="publish_frequency" type="double" value="200"/> -->
+  <!-- <param name="use_tf_static" type="bool" value="false"/> -->
+  <param name="enable_statistics" type="bool" value="false"/>
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher"
+    type="robot_state_publisher" />
+
+  <!-- run sweep_node node -->
+  <node name="sweep_node"          pkg="sweep_ros"  type="sweep_node" output="screen">
+          <param name="serial_port"         type="string" value="/dev/ttyUSB0"/>
+          <param name="serial_baudrate"     type="int"    value="115200"/>
+          <param name="frame_id"            type="string" value="laser_frame"/>
+          <param name="rotation_speed"	    type="int"    value="5"/>
+          <param name="sample_rate"         type="int"    value="750"/>
+  </node>
+
+  <!-- run pointcloud_to_laserscan node -->
+  <node pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node" name="pointcloud_to_laserscan">
+
+      <remap from="cloud_in" to="pc2"/>
+      <rosparam>
+          target_frame: laser_frame # Leave disabled to output scan in pointcloud frame
+          transform_tolerance: 0.001
+          min_height: -1.0
+          max_height: 1.0
+
+          angle_min: -3.14 # -M_PI/2
+          angle_max: 3.14 # M_PI/2
+          angle_increment: 0.001 # M_PI/360.0
+          scan_time: 0.1
+          range_min: 0.0
+          range_max: 10.0
+          use_inf: true
+
+          # Concurrency level, affects number of pointclouds queued for processing and number of threads used
+          # 0 : Detect number of cores
+          # 1 : Single threaded
+          # 2->inf : Parallelism level
+          concurrency_level: 1
+      </rosparam>
+
+  </node>
+   
+  <node name="cartographer_node" pkg="cartographer_ros"
+      type="cartographer_node" args="
+          -configuration_directory $(find cartographer_ros)/configuration_files
+          -configuration_basename sweep.lua"
+      output="screen"
+      launch-prefix="$(arg debugger)" >
+  </node>
+
+  <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
+      type="cartographer_occupancy_grid_node" args="-resolution 0.1" />
+
+  <node name="rviz" pkg="rviz" type="rviz" required="true"
+      args="-d /home/pi/Desktop/stu.rviz">
+  </node>
+
+</launch>
