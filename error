@@ -1,0 +1,107 @@
+mahendran@bg-enhance:~$ cd catkin_ws
+mahendran@bg-enhance:~/catkin_ws$ source install_isolated/setup.bash 
+mahendran@bg-enhance:~/catkin_ws$ cd src
+mahendran@bg-enhance:~/catkin_ws/src$ cd sweep-ros
+mahendran@bg-enhance:~/catkin_ws/src/sweep-ros$ cd launchmahendran@bg-enhance:~/catkin_ws/src/sweep-ros/launch$ roslaunch sweep.launch
+... logging to /home/mahendran/.ros/log/f7bbfdba-449c-11e8-b606-a782b0d5ce85/roslaunch-bg-enhance-19606.log
+Checking log directory for disk usage. This may take awhile.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+
+started roslaunch server http://bg-enhance:32913/
+
+SUMMARY
+========
+
+PARAMETERS
+ * /enable_statistics: False
+ * /pointcloud_to_laserscan/angle_increment: 0.001
+ * /pointcloud_to_laserscan/angle_max: 3.14
+ * /pointcloud_to_laserscan/angle_min: -3.14
+ * /pointcloud_to_laserscan/concurrency_level: 1
+ * /pointcloud_to_laserscan/max_height: 1.0
+ * /pointcloud_to_laserscan/min_height: -1.0
+ * /pointcloud_to_laserscan/range_max: 10.0
+ * /pointcloud_to_laserscan/range_min: 0.0
+ * /pointcloud_to_laserscan/scan_time: 0.1
+ * /pointcloud_to_laserscan/target_frame: laser_frame
+ * /pointcloud_to_laserscan/transform_tolerance: 0.001
+ * /pointcloud_to_laserscan/use_inf: True
+ * /robot_description: <...>
+ * /rosdistro: indigo
+ * /rosversion: 1.11.21
+ * /sweep_node/frame_id: laser_frame
+ * /sweep_node/rotation_speed: 5
+ * /sweep_node/sample_rate: 750
+ * /sweep_node/serial_baudrate: 115200
+ * /sweep_node/serial_port: /dev/ttyUSB0
+
+NODES
+  /
+    cartographer_node (cartographer_ros/cartographer_node)
+    cartographer_occupancy_grid_node (cartographer_ros/cartographer_occupancy_grid_node)
+    pointcloud_to_laserscan (pointcloud_to_laserscan/pointcloud_to_laserscan_node)
+    robot_state_publisher (robot_state_publisher/robot_state_publisher)
+    rviz (rviz/rviz)
+    sweep_node (sweep_ros/sweep_node)
+
+auto-starting new master
+process[master]: started with pid [19623]
+ROS_MASTER_URI=http://localhost:11311
+
+setting /run_id to f7bbfdba-449c-11e8-b606-a782b0d5ce85
+process[rosout-1]: started with pid [19636]
+started core service [/rosout]
+process[robot_state_publisher-2]: started with pid [19647]
+process[sweep_node-3]: started with pid [19652]
+process[pointcloud_to_laserscan-4]: started with pid [19653]
+process[cartographer_node-5]: started with pid [19664]
+process[cartographer_occupancy_grid_node-6]: started with pid [19686]
+process[rviz-7]: started with pid [19705]
+[ INFO] [1524230160.286459832]: I0420 14:16:00.000000 19664 configuration_file_resolver.cc:41] Found '/home/mahendran/catkin_ws/install_isolated/share/cartographer_ros/configuration_files/sweep.lua' for 'sweep.lua'.
+[ INFO] [1524230160.286838094]: I0420 14:16:00.000000 19664 configuration_file_resolver.cc:41] Found '/home/mahendran/catkin_ws/install_isolated/share/cartographer/configuration_files/map_builder.lua' for 'map_builder.lua'.
+[ INFO] [1524230160.286895650]: I0420 14:16:00.000000 19664 configuration_file_resolver.cc:41] Found '/home/mahendran/catkin_ws/install_isolated/share/cartographer/configuration_files/map_builder.lua' for 'map_builder.lua'.
+[ INFO] [1524230160.286976086]: I0420 14:16:00.000000 19664 configuration_file_resolver.cc:41] Found '/home/mahendran/catkin_ws/install_isolated/share/cartographer/configuration_files/pose_graph.lua' for 'pose_graph.lua'.
+[ INFO] [1524230160.287018575]: I0420 14:16:00.000000 19664 configuration_file_resolver.cc:41] Found '/home/mahendran/catkin_ws/install_isolated/share/cartographer/configuration_files/pose_graph.lua' for 'pose_graph.lua'.
+[ INFO] [1524230160.287227015]: I0420 14:16:00.000000 19664 configuration_file_resolver.cc:41] Found '/home/mahendran/catkin_ws/install_isolated/share/cartographer/configuration_files/trajectory_builder.lua' for 'trajectory_builder.lua'.
+[ INFO] [1524230160.287273335]: I0420 14:16:00.000000 19664 configuration_file_resolver.cc:41] Found '/home/mahendran/catkin_ws/install_isolated/share/cartographer/configuration_files/trajectory_builder.lua' for 'trajectory_builder.lua'.
+[ INFO] [1524230160.287344664]: I0420 14:16:00.000000 19664 configuration_file_resolver.cc:41] Found '/home/mahendran/catkin_ws/install_isolated/share/cartographer/configuration_files/trajectory_builder_2d.lua' for 'trajectory_builder_2d.lua'.
+[ INFO] [1524230160.287387590]: I0420 14:16:00.000000 19664 configuration_file_resolver.cc:41] Found '/home/mahendran/catkin_ws/install_isolated/share/cartographer/configuration_files/trajectory_builder_2d.lua' for 'trajectory_builder_2d.lua'.
+[ INFO] [1524230160.287513965]: I0420 14:16:00.000000 19664 configuration_file_resolver.cc:41] Found '/home/mahendran/catkin_ws/install_isolated/share/cartographer/configuration_files/trajectory_builder_3d.lua' for 'trajectory_builder_3d.lua'.
+[ INFO] [1524230160.287814851]: I0420 14:16:00.000000 19664 configuration_file_resolver.cc:41] Found '/home/mahendran/catkin_ws/install_isolated/share/cartographer/configuration_files/trajectory_builder_3d.lua' for 'trajectory_builder_3d.lua'.
+..."]:33: attempt to index global 'SPARSE_POSE_GRAPH' (a nil value)ailed: status == 0 (2 vs. 0) [string "include "map_builder.lua"
+..."]:33: attempt to index global 'SPARSE_POSE_GRAPH' (a nil value)ameter_dictionary.cc:83] Check failed: status == 0 (2 vs. 0) [string "include "map_builder.lua"
+[ INFO] [1524230160.348656190]: expected rotation frequency: 5 (Hz)
+*** Check failure stack trace: ***
+    @     0x7f78f5e03daa  (unknown)
+    @     0x7f78f5e03ce4  (unknown)
+    @     0x7f78f5e036e6  (unknown)
+    @     0x7f78f5e06687  (unknown)
+    @           0x674d96  cartographer::common::(anonymous namespace)::CheckForLuaErrors()
+    @           0x675306  cartographer::common::LuaParameterDictionary::LuaParameterDictionary()
+    @           0x67548d  cartographer::common::LuaParameterDictionary::LuaParameterDictionary()
+    @           0x58d5a2  cartographer_ros::LoadOptions()
+    @           0x58b8a3  cartographer_ros::(anonymous namespace)::Run()
+    @           0x588e06  main
+    @     0x7f78f2281f45  (unknown)
+    @           0x58b6f7  (unknown)
+    @              (nil)  (unknown)
+[cartographer_node-5] process has died [pid 19664, exit code -6, cmd /home/mahendran/catkin_ws/install_isolated/lib/cartographer_ros/cartographer_node -configuration_directory /home/mahendran/catkin_ws/install_isolated/share/cartographer_ros/configuration_files -configuration_basename sweep.lua __name:=cartographer_node __log:=/home/mahendran/.ros/log/f7bbfdba-449c-11e8-b606-a782b0d5ce85/cartographer_node-5.log].
+log file: /home/mahendran/.ros/log/f7bbfdba-449c-11e8-b606-a782b0d5ce85/cartographer_node-5*.log
+================================================================================REQUIRED process [rviz-7] has died!
+process has finished cleanly
+log file: /home/mahendran/.ros/log/f7bbfdba-449c-11e8-b606-a782b0d5ce85/rviz-7*.log
+Initiating shutdown!
+================================================================================
+[rviz-7] killing on exit
+[cartographer_occupancy_grid_node-6] killing on exit
+[pointcloud_to_laserscan-4] killing on exit
+[sweep_node-3] killing on exit
+[robot_state_publisher-2] killing on exit
+[rosout-1] killing on exit
+[master] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+done
+mahendran@bg-enhance:~/catkin_ws/src/sweep-ros/launch$ 
+
